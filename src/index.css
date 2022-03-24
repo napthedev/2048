@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  user-select: none;
+}
+
+body {
+  @apply bg-[#222];
+}
+
+:root {
+  --board-size: min(100vmin, 400px);
+  --board-gap: min(2vmin, 10px);
+  --cell-size: calc((var(--board-size) - 5 * var(--board-gap)) / 4);
+}
+
+.cell {
+  top: calc(
+    var(--board-gap) + var(--y) * (var(--board-gap) + var(--cell-size))
+  );
+  left: calc(
+    var(--board-gap) + var(--x) * (var(--board-gap) + var(--cell-size))
+  );
+  height: var(--cell-size);
+  width: var(--cell-size);
+  font-size: calc(var(--cell-size) / 3);
+  visibility: hidden;
+
+  @apply absolute rounded-md flex justify-center items-center
+    transition-all duration-200;
+}
