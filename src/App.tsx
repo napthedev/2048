@@ -16,7 +16,7 @@ import { colors } from "./shared/constants";
 
 const App: FC = () => {
   const [cells, setCells] = useState<CellType[]>(
-    uniqueRandomInts(0, 15, 13).map((int) => ({
+    uniqueRandomInts(0, 15, 2).map((int) => ({
       id: randomId(),
       value: randomTwoOrFour(),
       x: int % 4,
